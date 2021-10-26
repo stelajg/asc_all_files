@@ -1,0 +1,25 @@
+Nume: Josan-Gulica Stela
+Grupa: 336CC
+Tema 1 
+
+	Am hotarat sa folosesc o lista ce va reprezenta buffer-ul general în care
+fiecare producător are lista lui, și se identifica poziția listei lui, după
+id producatorului, în lista fiecărui producător exista un tuplu, format din
+produs și status-ul produsului, dacă este luat de un cumparator sau nu,
+am făcut acest lucru pentru ca sa pot identifica în care buffer sa-ntorc
+produsul dacă exista comanda de remove. Foloses un lock_consumers, pentru
+toate operațiile care nu sunt atomice, efectuate pe listă ce conține
+produsele din carts, și la fel folosesc un lock_producers. Folosești un
+semaphore pentru consumatori, ca sa stie cand este ceva pus în buffer
+de către produs. Pentru ca sa se știe cand producers trebuie sa
+se oprească folosesc o funcție adaugatoare number_of_orders, în care
+se calculează dacă au mai rămas consumatori sau nu. Consider ca se
+putea mai bine, doar cu lock-uri, fiindcă se întoarce o valoare
+și se poate de încercat din nou, deci nu este necesar un semafor.
+
+
+Resurse utilizate
+
+    Am folosit laboratorul 2 de la ASC
+
+
